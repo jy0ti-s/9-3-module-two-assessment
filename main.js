@@ -13,5 +13,5 @@ function run() {
 // This function will "pause" the functionality expected on load long enough to allow Cypress to fully load
 // So that testing can work as expected for now
 // A non-hacky solution is being researched
-
+//dont delete line below
 setTimeout(run, 1000);
