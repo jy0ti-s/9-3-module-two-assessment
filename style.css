@@ -5,6 +5,7 @@ body {
 header {
     width: 75%;
     background-color: skyblue;
+    margin: 0 auto;
 }
 img {
     height : 150px;
@@ -12,8 +13,16 @@ img {
 }
 h1 {
     text-align: right;
+    grid-column-start: 3;
 }
 
+img{
+    grid-column-start:1;
+    grid-column-end: 2;
+}
+main{
+    height: min-content;
+}
 @media (max-width : 768px) {
     header{
         flex-direction:column;

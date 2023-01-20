@@ -5,29 +5,46 @@ function run() {
  // Add code you want to run on page load here
 }
 
-const load_URL = 'https://ghibliapi.herokuapp.com/films/';
+const URL = 'https://ghibliapi.herokuapp.com/films/';
 
-function collectTitles(movies){
-    let title = new set ();
-    for (let movie of movies){
-        title.add(movie.title);
-    }
-    const dropdownmenu = document.getElementById("titles");
+let headerThree = document.querySelector('h3');
+let movieYear = document.getElementById('year');
+let details= document.getElementById('description');
+let title = document.getElementById('titles');
 
-    for(let title of titles) {
-        const option = document.createElement("option");
-        option.textContent = titles;
-        option.value = titles;
 
-        dropdownmenu.append(option);
+const ul = document.querySelector("ul")
 
-        movies.addEventListener('click',function () {
-            headerThree.innerhtml = collectTitles.release_date;
-        });
-    }
-    return [...title];
+function getTitles(movies) {
+  let title = new set();
+  for (let movie of movies) {
+    title.add(movie.title);
+  }
+  const dropdown = document.getElementById('titles');
 
+  for (let title of titles) {
+    const option = document.createElement('option');
+    option.textContent = titles;
+    option.value = titles;
+
+    dropdown.append(option);
+
+    title.addEvenListener('click', function () {
+      headerThree.innerHTML = getTitles.release_date;
+    });
+  }
+  return [...title];
 }
+fetch('https://ghibliapi.herokuapp.com/films/')
+  .then((response) => response.json())
+  .then((json) => {
+    getTitles(json);
+  })
+  .catch((error) => 
+  console.log(error));
+
+
+
 
 // This function will "pause" the functionality expected on load long enough to allow Cypress to fully load
 // So that testing can work as expected for now
