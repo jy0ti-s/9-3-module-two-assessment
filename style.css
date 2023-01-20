@@ -13,3 +13,18 @@ img {
 h1 {
     text-align: right;
 }
+
+@media (max-width : 768px) {
+    header{
+        flex-direction:column;
+    }
+}
+#reviews {
+    display: block;
+   
+}
+@media(max-width :500px) {
+    #reviews {
+         display: none;
+    }
+}
